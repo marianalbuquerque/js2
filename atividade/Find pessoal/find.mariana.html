@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sou adivinho? find</title>
+  <style>
+    body {
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      background-color: #F54945;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 100px;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      background-color: azure;
+    }
+
+    input[type="number"] {
+      width: 200px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #F56E45;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sou adivinho?</h1>
+    <p>Você quer saber se é um adivinho? Então vamos descobrir com um teste: se acertar um dos 10 números que escolhi então você é um adivinho. <br> Vamos lá!</p>
+    <p>DICA: É um número inteiro</p>
+    
+    <input type="number" id="numero" placeholder="Digite apenas UM número" max="1">
+    <button onclick="buscarNumero()">Buscar</button>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    function buscarNumero() {
+       numeroBuscado = parseInt(document.getElementById('numero').value);
+
+       listaNumeros = [21, 77, 915, -45, 666, 11, 2, 68, 450, -8];
+
+       numeroEncontrado = listaNumeros.find(function(numero) {
+        return numero === numeroBuscado;
+      });
+
+      if (numeroEncontrado) {
+        document.getElementById('resultado').innerText = "Você acertou! vire adivinho e ganhe dinheiro.";
+      } else {
+        document.getElementById('resultado').innerText = "Você errou, vai trabalhar.";
+      }
+    }
+  </script>
+</body>
+</html>
+
